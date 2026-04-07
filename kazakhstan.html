@@ -25,20 +25,31 @@
   <div class="country-content">
     <div class="country-card">
       <h2>The Story</h2>
-      <p>Your Kazakhstan story content goes here. Describe Faiza's journey through Kazakhstan, the sounds she heard, and the experiences she collected along the way.</p>
+      <p>
+        Faiza soared over Nur-Sultan, gliding alongside seagulls circling the golden Bayterek Tower. The city hummed below — modern, bold, alive. Then the rain came. She pulled out her NYU umbrella and listened to it drum against the wide stone pavements. Cold and damp, she followed the smell of roasted beans into <em>Ministry of Coffee</em>, wrapped her talons around a warm mug, and let the sounds of the city — wind, rain, jazz — wash over her.
+      </p>
     </div>
 
     <div class="country-card">
       <h2>The Sound</h2>
-      <p>Audio content for Kazakhstan coming soon.</p>
+      <audio controls autoplay>
+        <source src="sounds/kazakhstan-audio.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
     </div>
 
     <div class="country-card">
       <h2>Gallery</h2>
-      <div class="country-grid">
-        <div class="country-img-placeholder">Image</div>
-        <div class="country-img-placeholder">Image</div>
-        <div class="country-img-placeholder">Image</div>
+      <div class="gallery-slider">
+        <button class="gallery-btn gallery-prev">&#8249;</button>
+        <div class="gallery-track-wrap">
+          <div class="gallery-track">
+            <img src="pics/kazakhstan/birds_flying.png" alt="Birds flying in Kazakhstan" class="gallery-slide">
+            <img src="pics/kazakhstan/coffee.png" alt="Coffee in Kazakhstan" class="gallery-slide">
+            <img src="pics/kazakhstan/under_the_rain.png" alt="Under the rain in Kazakhstan" class="gallery-slide">
+          </div>
+        </div>
+        <button class="gallery-btn gallery-next">&#8250;</button>
       </div>
     </div>
   </div>
@@ -50,5 +61,6 @@
   </div>
 </div>
 
+<script src="gallery.js"></script>
 </body>
 </html>
