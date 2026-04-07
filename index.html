@@ -5,6 +5,7 @@
   <title>Faiza the Falcon</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="//unpkg.com/globe.gl"></script>
 </head>
 <body>
 
@@ -18,12 +19,7 @@
 <section id="home">
   <h1>Faiza the Falcon: Around the World</h1>
   <div id="frame">
-    <div class="map">
-      <button onclick="openCountry(0)">UAE</button>
-      <button onclick="openCountry(1)">Taiwan</button>
-      <button onclick="openCountry(2)">Kazakhstan</button>
-      <button onclick="openCountry(3)">Lebanon</button>
-    </div>
+    <div id="globe-container"></div>
   </div>
 </section>
 
