@@ -9,6 +9,7 @@
 </head>
 <body>
 
+<!-- Country page nav uses direct page-to-page links for quick browsing -->
 <nav>
   <span onclick="window.location.href='uae.html'">← UAE</span>
   <span onclick="window.location.href='index.html'">Globe</span>
@@ -16,6 +17,7 @@
 </nav>
 
 <div class="country-page">
+  <!-- Header block: country identity + subtitle -->
   <div class="country-hero">
     <div class="country-flag">🇹🇼</div>
     <h1>Faiza the Falcon: In Taiwan</h1>
@@ -30,6 +32,7 @@
 
     <div class="country-card">
       <h2>The Sound</h2>
+      <!-- Main ambient sound for this location -->
       <audio controls autoplay>
         <source src="sounds/taipeiaudio.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
@@ -49,6 +52,16 @@
   </div>
 </div>
 
+<div id="faiza-guide" data-faiza-audio="faiza/sounds/Taiwan.mp3">
+  <div id="faiza-guide-sprite">
+    <img id="faiza-idle" src="faiza/idle.png" alt="Faiza the Falcon idle">
+    <img id="faiza-talking" src="faiza/talking.png" alt="Faiza the Falcon talking" style="display:none;">
+  </div>
+  <div id="faiza-bubble">Now we are in Taiwan, a place full of people, movement and energy. Let's hear the sounds that make it special.</div>
+</div>
+
+<!-- Guide voice should initialize before gallery interactions -->
+<script src="faiza-guide.js"></script>
 <script src="gallery.js"></script>
 </body>
 </html>

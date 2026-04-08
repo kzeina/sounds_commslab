@@ -1,3 +1,4 @@
+/* Country-page layer: extends shared style.css with detail-page components. */
 nav {
   display: flex;
   justify-content: space-between;
@@ -8,7 +9,8 @@ nav {
 .country-page {
   max-width: 900px;
   margin: 0 auto;
-  padding: 100px 20px 60px;
+  /* Keep fixed Faiza guide from overlapping bottom nav buttons. */
+  padding: 100px 20px 260px;
 }
 
 .country-hero {
@@ -64,7 +66,7 @@ nav {
   margin-top: 8px;
 }
 
-/* ── Gallery Slider ── */
+/* Gallery slider: one visible frame, horizontal track translated in JS. */
 .gallery-slider {
   display: flex;
   align-items: center;

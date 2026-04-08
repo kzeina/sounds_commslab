@@ -3,6 +3,7 @@ const countryPages = ["uae.html", "taiwan.html", "kazakhstan.html", "lebanon.htm
 let current = 0;
 let globeInstance = null;
 
+// Marker metadata drives labels, click targets, and ring effects.
 const markerData = [
   { name: "UAE",        index: 0, lat: 25.2048,  lng: 55.2708  },
   { name: "Taiwan",     index: 1, lat: 25.0330,  lng: 121.5654 },
@@ -27,6 +28,7 @@ function initGlobe() {
   const height = frame.clientHeight || 750;
 
   globeInstance = Globe()(container)
+    // Globe.gl setup: earth textures + labels + click navigation.
     .globeImageUrl('//unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
     .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
     .backgroundColor('rgba(0,0,0,0)')
@@ -62,7 +64,7 @@ function initGlobe() {
   controls.enableZoom      = false;
   controls.enablePan       = false;
 
-  // Lock vertical tilt so only left/right rotation is possible
+  // Lock vertical tilt so users rotate horizontally around countries.
   const fixedPolar = (90 - 35) * Math.PI / 180; // matches the lat:35 POV
   controls.minPolarAngle = fixedPolar;
   controls.maxPolarAngle = fixedPolar;
@@ -70,7 +72,7 @@ function initGlobe() {
   // Falcon sprite overlay
   const falcon = document.createElement('img');
   falcon.id = 'falcon-sprite';
-  falcon.src = 'faiza/standing.png';
+  falcon.src = 'faiza/idle.png';
   falcon.style.cssText = `
     position: absolute;
     width: 55px;
@@ -88,7 +90,7 @@ function initGlobe() {
 }
 
 function latLngToScreen(lat, lng) {
-  // Convert lat/lng to three-globe's internal 3D cartesian (radius = 100)
+  // Convert lat/lng to screen coordinates so the 2D falcon tracks the 3D globe.
   const phi   = (90 - lat) * Math.PI / 180;
   const theta = (lng + 180) * Math.PI / 180;
   const R = 100;
@@ -148,7 +150,7 @@ function flyFalconTo(targetLat, targetLng, onDone) {
 
   function step(now) {
     const t = Math.min((now - startTime) / duration, 1);
-    // ease-in-out
+    // Ease-in-out flight feels more natural than linear motion.
     const ease = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
     falconLat = startLat + (targetLat - startLat) * ease;
     falconLng = startLng + (targetLng - startLng) * ease;
@@ -166,6 +168,7 @@ function flyFalconTo(targetLat, targetLng, onDone) {
 }
 
 function openCountry(index) {
+  // Country pages are separate HTML files with localized audio/content.
   window.location.href = countryPages[index];
 }
 
@@ -194,6 +197,7 @@ function prev() {
 }
 
 function resetMap() {
+  // Rebuild globe cleanly when returning from a country detail view.
   falconLoopActive = false;
   falconLat = 25.2048;
   falconLng = 55.2708;

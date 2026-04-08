@@ -3,6 +3,7 @@
   scroll-behavior: smooth;
 }
 
+/* Global visual language for the one-page storytelling layout. */
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -66,7 +67,7 @@ h1 {
   overflow: hidden;
 }
 
-/* Pin markers rendered inside Globe.gl HTML layer */
+/* Pin markers rendered inside Globe.gl HTML layer (icon + short label). */
 .globe-pin {
   display: flex;
   flex-direction: column;
@@ -167,6 +168,7 @@ h1 {
   height: auto;
 }
 
+/* Reserved gallery grid style (kept for optional future section). */
 .grid {
   max-width: 900px;
   margin: auto;
@@ -186,7 +188,7 @@ h1 {
   color: #555;
 }
 
-/* Team Cards */
+/* Team card styling keeps profile blocks visually consistent. */
 .team-cards {
   display: flex;
   justify-content: center;
@@ -221,6 +223,61 @@ h1 {
   align-items: center;
   justify-content: center;
   margin: 0 auto 10px;
+}
+
+#faiza-guide {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 1100;
+  width: 390px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1px;
+  pointer-events: none;
+}
+
+#faiza-guide.faiza-country-position {
+  /* Country pages use a tighter layout; keep guide within viewport. */
+  right: 0;
+}
+
+#faiza-guide.faiza-country-position #faiza-bubble {
+  /* Prevent the speech bubble from clipping on narrow screens. */
+  width: min(360px, calc(100vw - 24px));
+  margin-right: 12px;
+}
+
+#faiza-guide.faiza-country-position #faiza-guide-sprite {
+  /* Shift only the sprite, not the bubble, to preserve readability. */
+  transform: translateX(20px);
+}
+
+#faiza-guide-sprite {
+  width: 350px;
+  height: auto;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.25));
+}
+
+#faiza-idle,
+#faiza-talking {
+  width: 100%;
+  height: auto;
+}
+
+#faiza-bubble {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid #e4d8ff;
+  border-radius: 14px;
+  padding: 10px 12px;
+  color: #3a2460;
+  font-size: 15px;
+  line-height: 1.45;
+  text-align: left;
+  box-shadow: 0 10px 22px rgba(87, 6, 140, 0.18);
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 @keyframes fadeIn {

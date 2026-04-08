@@ -11,6 +11,7 @@
 
 <body>
 
+  <!-- Fixed top navigation for one-page section jumps -->
   <nav>
     <span onclick="scrollToSection('home')">Home</span>
     <span onclick="scrollToSection('story')">The Story</span>
@@ -18,6 +19,7 @@
     <span onclick="scrollToSection('team')">Team</span>
   </nav>
 
+  <!-- Landing section: interactive globe lives inside #globe-container -->
   <section id="home">
     <h1>Faiza the Falcon: Around the World</h1>
     <div id="frame">
@@ -25,6 +27,7 @@
     </div>
   </section>
 
+  <!-- Narrative context for the project -->
   <section id="story">
     <h1>THE STORY</h1>
     <div class="split">
@@ -41,6 +44,7 @@ But it didn’t feel as empty anymore.</p>
   </section>
 
 <section id="bts">
+  <!-- Process documentation via embedded behind-the-scenes video -->
   <h1>Behind The Scenes</h1>
 
   <div style="display:flex; justify-content:center;">
@@ -56,6 +60,7 @@ But it didn’t feel as empty anymore.</p>
 </section>
 
   <section id="team">
+    <!-- Team cards: roles only, no extra interaction -->
     <h1>The Creators</h1>
     <div class="team-cards">
       <div class="card">
@@ -81,6 +86,17 @@ But it didn’t feel as empty anymore.</p>
     </div>
   </section>
 
+  <!-- Persistent guide widget reused on home and country pages -->
+  <div id="faiza-guide" data-faiza-audio="faiza/sounds/welcoming_message.mp3">
+    <div id="faiza-guide-sprite">
+      <img id="faiza-idle" src="faiza/idle.png" alt="Faiza the Falcon idle">
+      <img id="faiza-talking" src="faiza/talking.png" alt="Faiza the Falcon talking" style="display:none;">
+    </div>
+    <div id="faiza-bubble">Hi, move the globe around to visit countries where my students live. You can listen to the unique sounds that represent each country.</div>
+  </div>
+
+  <!-- Keep guide setup before main scene logic -->
+  <script src="faiza-guide.js"></script>
   <script src="script.js"></script>
 </body>
 

@@ -7,6 +7,7 @@ function initGallery(slider) {
   let index    = 0;
 
   function update() {
+    // Track moves by exactly one slide width each step.
     const slideWidth = slides[0].offsetWidth;
     track.style.transform = `translateX(${-index * slideWidth}px)`;
     prev.style.visibility = index === 0           ? 'hidden' : 'visible';
@@ -20,5 +21,6 @@ function initGallery(slider) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Initialize every gallery instance independently per page.
   document.querySelectorAll('.gallery-slider').forEach(initGallery);
 });
